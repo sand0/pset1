@@ -9,10 +9,11 @@ namespace Frendzone.Data.Interfaces
     {
         IEnumerable<T> All();
         T Get(int id);
-        T Insert(T entity);
+
+        T Create(T entity);
         T Update(T entity);
         bool Delete(T entity);
-        void Remove(T entity);
-        void SaveChanges();
+
+        void Save();
     }
 }
