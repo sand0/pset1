@@ -8,6 +8,9 @@ namespace Frendzone.Models
 {
     public class User : IdentityUser
     {
-
+        public DateTime BirthdayDate { get; set; }
+        public Photo Avatar { get; set; }
+        public List<Category> FavoriteCategories { get; set; }
+        public string Location { get; set; }
     }
 }
