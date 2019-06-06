@@ -9,8 +9,14 @@ namespace Frendzone.Models
     public class User : IdentityUser
     {
         public DateTime BirthdayDate { get; set; }
-        public Photo Avatar { get; set; }
-        public List<Category> FavoriteCategories { get; set; }
-        public string Location { get; set; }
+
+        public int PhotoId { get; set; }
+        public Photo Photo { get; set; }
+
+        public List<UserCategory> UserCategory { get; set; }
+        //public List<EventUser> EventUser { get; set; }
+
+        public List<Event> UsersEvents { get; set; }
+        public Location Location { get; set; }
     }
 }

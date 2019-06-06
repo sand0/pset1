@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
-    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
 
 </Project>
