@@ -10,7 +10,7 @@ namespace Frendzone.Models
     {
         public DateTime BirthdayDate { get; set; }
 
-        public int PhotoId { get; set; }
+        //public int PhotoId { get; set; }
         public Photo Photo { get; set; }
 
         public List<UserCategory> UserCategory { get; set; }

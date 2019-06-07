@@ -13,6 +13,8 @@ using Frendzone.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Frendzone.Models;
+using Frendzone.Data.Interfaces;
+using Frendzone.Data.Repositories;
 
 namespace Frendzone
 {
@@ -44,6 +46,9 @@ namespace Frendzone
                 .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddTransient<IEventRepository, EventRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

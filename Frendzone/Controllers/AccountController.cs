@@ -15,7 +15,6 @@ namespace Frendzone.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private static bool _databaseChecked;
 
 
         public AccountController(
@@ -47,8 +46,18 @@ namespace Frendzone.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email,
-                    model.Password, model.RememberMe, lockoutOnFailure: false);
+                //var user = _userManager.FindByEmailAsync(model.Email) ?? _userManager.FindByNameAsync(model.Email);
+                //if(user != null)
+                //{
+                //    var result = await _signInManager.SignInAsync(user, isPersistent: false);
+                //
+                //}
+
+                var result = await _signInManager.PasswordSignInAsync(
+                    model.Email,
+                    model.Password, 
+                    model.RememberMe, 
+                    /*lockoutOnFailure:*/ false);
                 if (result.Succeeded)
                 {
                     return RedirectToLocal(returnUrl);
@@ -92,6 +101,7 @@ namespace Frendzone.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "User");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }

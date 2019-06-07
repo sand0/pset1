@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Frendzone.Data.Interfaces
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> All();
         T Get(int id);

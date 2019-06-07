@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Frendzone.Data.Interfaces
 {
-    public interface IEventRepository : IRepository<Event>
+    public interface ICategoryRepository : IRepository<Category>
     {
-        IEnumerable<Event> GetEventsByOwnerId(int id);
+
     }
 }
